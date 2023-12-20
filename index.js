@@ -8,24 +8,24 @@ import  addAdmin  from './routes/adminRoutes/admin.Route.js';
 // Admin routes end here
 // User routes
 import  addnewuser  from './routes/userRoutes/userRoutes.js';
-// 
+//
 import siginUser from "./routes/userRoutes/userSiginRoute.js"
-// 
+//
 import addUserReviews from "./routes/userReviewRoutes/userReviewRoute.js"
-// 
+//
 import  addResturant  from "./routes/resturantRoutes/resturantRoutes.js";
-// 
+//
 import getallResturants from "./routes/resturantRoutes/getallResturantRoutes.js";
-// 
-import getSingleResturant from "./routes/resturantRoutes/getSingleResturant.js"
-// 
+//
+// import getSingleResturant from "./routes/resturantRoutes/getSingleResturant.js"
+//
 import  dellResturant  from './routes/resturantRoutes/dellResturantRoute.js';
-// 
+//
 import updateResturant from "./routes/resturantRoutes/updateResturantRoute.js"
-// 
+//
 import addProductModel from "./routes/foodRoutes/foodRoutes.js"
 const app = express();
- 
+
 dotenv.config();
 dbConnection();
 
@@ -41,7 +41,7 @@ app.use('/api',siginUser);
 app.use('/api',addUserReviews);
 app.use('/api',addResturant);
 app.use('/api',getallResturants);
-app.use('/api',getSingleResturant);
+// app.use('/api',getSingleResturant);
 app.use("/api",dellResturant);
 app.use('/api',updateResturant);
 const Port= 8500;
