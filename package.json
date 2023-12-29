@@ -1,11 +1,12 @@
 {
-  "name": "pakistan-food-portral",
+  "name": "pakistan-food-portal",
   "version": "1.0.0",
-  "description": "Developing a food portral in Mern satck",
+  "description": "Developing a food portal in using MERN",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "author": "TechHype",
   "license": "ISC",
