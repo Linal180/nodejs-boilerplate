@@ -3,12 +3,12 @@ import dotenv from "dotenv";
 import cors from "cors";
 import dbConnection from './configuration/DataBase/db.js';
 
-import  userRoutes  from './src/routes/userRoutes/index.js';
+import userRoutes from './src/routes/userRoutes/index.js';
 import addUserReviews from "./src/routes/userReviewRoutes/userReviewRoute.js"
-import  addResturant  from "./src/routes/resturantRoutes/restaurantRoutes.js";
-import getallResturants from "./src/routes/resturantRoutes/getallRestaurantRoutes.js";
-import  dellResturant  from './src/routes/resturantRoutes/dellRestaurantRoute.js';
-import updateResturant from "./src/routes/resturantRoutes/updateRestaurantRoute.js"
+import addResturant from "./src/routes/restaurantRoutes/restaurantRoutes.js";
+import getallResturants from "./src/routes/restaurantRoutes/getallRestaurantRoutes.js";
+import dellResturant from './src/routes/restaurantRoutes/dellRestaurantRoute.js';
+import updateResturant from "./src/routes/restaurantRoutes/updateRestaurantRoute.js"
 
 const app = express();
 
@@ -22,14 +22,16 @@ app.use(express.json());
 
 
 app.use('/api', userRoutes);
-app.use('/api',addUserReviews);
-app.use('/api',addResturant);
-app.use('/api',getallResturants);
+app.use('/api', addUserReviews);
+app.use('/api', addResturant);
+app.use('/api', getallResturants);
 // app.use('/api',getSingleResturant);
-app.use("/api",dellResturant);
-app.use('/api',updateResturant);
-const Port= 8500;
-app.listen(Port, (req,res) =>{
+app.use("/api", dellResturant);
+app.use('/api', updateResturant);
+
+const Port = 3001;
+
+app.listen(Port, (req, res) => {
     console.log(`Server is running at port ${Port}`);
 })
 

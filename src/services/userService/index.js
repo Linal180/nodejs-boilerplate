@@ -1,6 +1,7 @@
+import jwt from 'jsonwebtoken';
 import User from "../../models/userModel/index.js";
 import Contact from "../../models/Contact/index.js";
-import { hashPassword } from "../../helpers/index.js";
+import { hashPassword, comparePassword } from "../../helpers/index.js";
 
 class UserService {
   constructor() { }
@@ -25,11 +26,11 @@ class UserService {
         city, street, houseNumber
       } = userData;
 
-      const existingUser = await userModel.findOne({ email });
+      const existingUser = await User.findOne({ email });
 
       if (existingUser) {
         return {
-          status: 401
+          status: 400
         }
       } else {
         const hashedPassword = await hashPassword(password);
@@ -62,10 +63,10 @@ class UserService {
   async signIn(credentials) {
     try {
       const { email, password } = credentials;
-      const user = await userModel.findOne({ email: email });
+      const user = await User.findOne({ email: email });
 
       if (user) {
-        const isMatched = await comparePassword(password, userLogin.password);
+        const isMatched = await comparePassword(password, user.password);
 
         if (!isMatched) {
           return {
@@ -74,9 +75,9 @@ class UserService {
         }
         else {
           const token = jwt.sign(
-            { userId: userLogin._id },
+            { userId: user._id },
             process.env.SECRET_KEY, {
-            expiresIn: "*",
+            expiresIn: 60 * 60 * 24 * 365,
           });
 
           return {
