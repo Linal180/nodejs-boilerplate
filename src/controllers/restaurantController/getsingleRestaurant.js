@@ -1,8 +1,8 @@
-import resturantModel from "../../models/resturantModel/resturantModel.js";
+import { RestaurantModel } from "../../models/restaurantModel/restaurantModel.js";
 
 export const getSingleResturant = async (req, res) => {
     try {
-        const getSingle_Resturant = await resturantModel.findOne({ id: req.params.id });
+        const getSingle_Resturant = await RestaurantModel.findOne({ id: req.params.id });
 
         if (!getSingle_Resturant) {
             res.status(400).json({ message: "No Restaurant Found" });

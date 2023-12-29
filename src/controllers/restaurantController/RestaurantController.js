@@ -1,5 +1,5 @@
-import resturantModel from "../../models/resturantModel/resturantModel.js";
-import fs from "fs";
+import { RestaurantModel } from "../../models/restaurantModel/index.js";
+
 export const addResturant = async (req, res) => {
     try {
         const {
@@ -15,12 +15,12 @@ export const addResturant = async (req, res) => {
         const { telephone, zipcode, city, street, currentLocation } = resturantAddress;
 
         // Initialize resturantExit here
-        const resturantExit = await resturantModel.findOne({ resturantId: resturantId });
+        const resturantExit = await RestaurantModel.findOne({ resturantId: resturantId });
 
         if (resturantExit) {
             res.status(200).json({ message: "Restaurant is already Exists" });
         } else {
-            const addResturant = await new resturantModel({
+            const addResturant = await new RestaurantModel({
                 resturantId,
                 resturantName,
                 restaurantDescription,

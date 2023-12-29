@@ -1,12 +1,12 @@
-import resturantModel from "../../models/resturantModel/resturantModel.js";
-import fs from "fs";
+import { RestaurantModel } from "../../models/restaurantModel/index.js";
+
 export const updateResturant = async (req, res) => {
     try {
         const { id } = req.params;
         const updateData = req.body;
 
         // Use the `new` option to return the updated document
-        const updatedResturant = await resturantModel.findByIdAndUpdate(id, updateData, { new: true });
+        const updatedResturant = await RestaurantModel.findByIdAndUpdate(id, updateData, { new: true });
 
         if (!updatedResturant) {
             return res.status(404).json({ message: "Restaurant not found" });

@@ -1,4 +1,3 @@
-import userReviewModel from "../../models/userReviewModel/userReviewModel.js";
 
 export const addUserReviews = async(req,res)=>{
     try{

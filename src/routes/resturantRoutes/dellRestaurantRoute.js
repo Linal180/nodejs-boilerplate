@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import { dellResturant } from '../../controllers/resturantController/dellResturantController.js';
+import { dellResturant } from '../../controllers/restaurantController/dellRestaurantController.js';
 
 router.delete('/dellResturant',dellResturant);
 

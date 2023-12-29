@@ -1,8 +1,8 @@
-import resturantModel from "../../models/resturantModel/resturantModel.js";
+import { RestaurantModel } from "../../models/restaurantModel/index.js";
 
 export const getallResturants = async(req,res)=>{
    try {
-    const allResturantslist = await resturantModel.find();
+       const allResturantslist = await RestaurantModel.find();
     if(allResturantslist.length<=0){
         res.ststus(200).json({message:"No Resturants found"});
     }
