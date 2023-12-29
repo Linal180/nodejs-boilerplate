@@ -3,19 +3,13 @@ import dotenv from "dotenv";
 import cors from "cors";
 import dbConnection from './configuration/DataBase/db.js';
 
-import userRoutes from './src/routes/userRoutes/index.js';
-
+import  userRoutes  from './src/routes/userRoutes/index.js';
 import addUserReviews from "./src/routes/userReviewRoutes/userReviewRoute.js"
+import  addResturant  from "./src/routes/resturantRoutes/restaurantRoutes.js";
+import getallResturants from "./src/routes/resturantRoutes/getallRestaurantRoutes.js";
+import  dellResturant  from './src/routes/resturantRoutes/dellRestaurantRoute.js';
+import updateResturant from "./src/routes/resturantRoutes/updateRestaurantRoute.js"
 
-import  addResturant  from "./src/routes/resturantRoutes/resturantRoutes.js";
-
-import getallResturants from "./src/routes/resturantRoutes/getallResturantRoutes.js";
-
-import  dellResturant  from './src/routes/resturantRoutes/dellResturantRoute.js';
-
-import updateResturant from "./src/routes/resturantRoutes/updateResturantRoute.js"
-
-import addProductModel from "./src/routes/foodRoutes/foodRoutes.js"
 const app = express();
 
 dotenv.config();
@@ -27,7 +21,7 @@ app.use(express.json());
 // middlewares end here
 
 
-app.use('/api/users', userRoutes);
+app.use('/api', userRoutes);
 app.use('/api',addUserReviews);
 app.use('/api',addResturant);
 app.use('/api',getallResturants);

@@ -1,6 +1,6 @@
-import User from "../../models/userModel";
-import Contact from "../../models/Contact";
-import { hashPassword } from "../../../helpers/index.js";
+import User from "../../models/userModel/index.js";
+import Contact from "../../models/Contact/index.js";
+import { hashPassword } from "../../helpers/index.js";
 
 class UserService {
   constructor() { }

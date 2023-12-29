@@ -1,5 +1,3 @@
-import  foodModel  from "../../src/models/foodMoel/foodModel.js";
-
 export const addProductModel = async(req,res)=>{
     try {
         const {
